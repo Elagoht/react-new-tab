@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  * {
+    font-family: "Poppins", sans-serif;
+  }
+  *:focus {
+    @apply outline-8 rounded-xl outline-orange-500;
+  }
+  select {
+    @apply bg-transparent flex-shrink-0;
+  }
+  body {
+    @apply bg-stone-900 bg-cover bg-center outline-none;
+  }
+  input::placeholder {
+    @apply text-stone-500;
+  }
+  input:focus::placeholder {
+    @apply text-stone-400;
+  }
+  .card {
+    @apply flex flex-col items-center justify-center p-3 gap-3 bg-black bg-opacity-20 rounded-xl transition-transform border border-stone-100 border-opacity-20 backdrop-blur-3xl;
+  }
+  .card:hover {
+    @apply scale-110;
+  }
+  .container {
+    @apply flex max-w-screen-lg w-full p-3 rounded-xl text-white bg-black bg-opacity-40 border border-stone-100 border-opacity-20 backdrop-blur-md;
+  }
+  #splash-text {
+    text-shadow: 0 0 0.4rem black, 0 0 0.1rem black;
+    font-family: "Dancing Script", cursive;
+    @apply max-w-screen-lg text-center text-white text-5xl leading-tight drop-shadow-2xl shadow-black font-bold;
+  }
+}

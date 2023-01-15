@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/react-new-tab/static/css/main.a0a4ff3f.css",
+    "main.js": "/react-new-tab/static/js/main.810260a2.js",
+    "static/media/18.jpg": "/react-new-tab/static/media/18.6f861ea52e717f5c452b.jpg",
+    "static/media/10.jpg": "/react-new-tab/static/media/10.a7fd77b1d85a0cf195b4.jpg",
+    "static/media/12.jpg": "/react-new-tab/static/media/12.68ded905996eecebd6fb.jpg",
+    "static/media/7.jpg": "/react-new-tab/static/media/7.fe73e2957aa1f6eb51fa.jpg",
+    "static/media/19.jpg": "/react-new-tab/static/media/19.25f399eea3e7aaa2393c.jpg",
+    "static/media/13.jpg": "/react-new-tab/static/media/13.5266a06e4850ae0ba459.jpg",
+    "static/media/9.jpg": "/react-new-tab/static/media/9.adda68b122339dafd81b.jpg",
+    "static/media/16.jpg": "/react-new-tab/static/media/16.ed40939590025c9ba4a2.jpg",
+    "static/media/11.jpg": "/react-new-tab/static/media/11.019040561ac76ffbbd04.jpg",
+    "static/media/14.jpg": "/react-new-tab/static/media/14.a6bf1bde84533e31fa25.jpg",
+    "static/media/17.jpg": "/react-new-tab/static/media/17.cd2de9f2474fc93b8f7f.jpg",
+    "static/media/15.jpg": "/react-new-tab/static/media/15.be5715e95f735cb6ce79.jpg",
+    "static/media/1.jpg": "/react-new-tab/static/media/1.9b95f7d57815792e094d.jpg",
+    "static/media/6.jpg": "/react-new-tab/static/media/6.7122e8fd477a33515179.jpg",
+    "static/media/2.jpg": "/react-new-tab/static/media/2.0be0ca51375b34822090.jpg",
+    "static/media/0.jpg": "/react-new-tab/static/media/0.7d8d27351fe7c7caed61.jpg",
+    "static/media/8.jpg": "/react-new-tab/static/media/8.b9131eafd0939666bf8e.jpg",
+    "static/media/4.jpg": "/react-new-tab/static/media/4.84af5ae8e1b7fece1920.jpg",
+    "static/media/5.jpg": "/react-new-tab/static/media/5.3d0b6bf47fc7c2bf9129.jpg",
+    "static/media/3.jpg": "/react-new-tab/static/media/3.a808772a365ef3002333.jpg",
+    "static/media/wikipedia.png": "/react-new-tab/static/media/wikipedia.ff3cfdb3328077128692.png",
+    "static/media/protondb.png": "/react-new-tab/static/media/protondb.ad1057f3c909716239dc.png",
+    "static/media/google.png": "/react-new-tab/static/media/google.d712cef93497902d41bb.png",
+    "static/media/translate.png": "/react-new-tab/static/media/translate.67604f54d62de11514ba.png",
+    "index.html": "/react-new-tab/index.html",
+    "main.a0a4ff3f.css.map": "/react-new-tab/static/css/main.a0a4ff3f.css.map",
+    "main.810260a2.js.map": "/react-new-tab/static/js/main.810260a2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0a4ff3f.css",
+    "static/js/main.810260a2.js"
+  ]
+}

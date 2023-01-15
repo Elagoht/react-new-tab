@@ -36,7 +36,11 @@ function App() {
           onKeyDown={search}
           className="bg-transparent w-full p-3 -m-3 mr-0"
         />
-        <img src={searchProviders[searcher].icon} className="w-6 mr-2" />
+        <img
+          src={searchProviders[searcher].icon}
+          alt={searchProviders[searcher].name}
+          className="w-6 mr-2"
+        />
         <select
           value={localStorage["searchProvider"]}
           id="searchProvider"

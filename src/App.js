@@ -12,6 +12,7 @@ function App() {
   }
 
   const [searcher, setSearcher] = useState(handleStorage())
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
     document.body.style.backgroundImage = `url("${
@@ -52,9 +53,25 @@ function App() {
           ))}
         </select>
         <input
+          id="search-term"
           placeholder="Search"
           onKeyDown={search}
+          onChange={() => {
+            setSearchTerm(document.getElementById("search-term").value)
+          }}
           className="bg-transparent w-full p-3"
+        />
+        <input
+          type="reset"
+          onClick={() => {
+            document.getElementById("search-term").value = ""
+            setSearchTerm("")
+          }}
+          value="❌"
+          className={
+            "cursor-pointer transition-all overflow-hidden" +
+            (searchTerm === "" ? " w-0 outline-none" : " w-16  p-3")
+          }
         />
       </div>
       <div className="container">

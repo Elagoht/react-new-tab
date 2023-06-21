@@ -16,6 +16,10 @@ const sites = [
     link: "https://instagram.com",
   },
   {
+    name: "Linkedin",
+    link: "https://linkedin.com",
+  },
+  {
     name: "Google Translate",
     link: "https://translate.google.com",
   },
@@ -34,6 +38,10 @@ const sites = [
   {
     name: "Netflix",
     link: "https://netflix.com",
+  },
+  {
+    name: "Prime Video",
+    link: "https://primevideo.com",
   },
   {
     name: "ChatGPT",

@@ -11,6 +11,15 @@
   *:focus {
     @apply outline-8 rounded-xl outline-orange-500;
   }
+  .glass {
+    @apply bg-opacity-40 border border-stone-100 bg-black p-3 rounded-xl flex border-opacity-20 backdrop-blur-md;
+  }
+  fieldset {
+    @apply glass h-min
+  }
+  legend {
+    @apply text-white ml-2
+  }
   select {
     @apply bg-transparent flex-shrink-0;
   }
@@ -30,7 +39,7 @@
     @apply scale-110;
   }
   .container {
-    @apply flex max-w-screen-md w-full p-3 rounded-xl text-white bg-black bg-opacity-40 border border-stone-100 border-opacity-20 backdrop-blur-md;
+    @apply flex max-w-screen-lg w-full p-3 rounded-xl text-white bg-black bg-opacity-40 border border-stone-100 border-opacity-20 backdrop-blur-md;
   }
   #splash-text {
     text-shadow: 0 0 0.4rem black, 0 0 0.1rem black;

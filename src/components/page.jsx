@@ -4,7 +4,8 @@ import ico_next from "../assets/misc/next.svg"
 
 const Page = ({ editMode, setPages, pages, info }) => {
   return <a
-    href={editMode ? "javascript:;" : info.link}
+    href={info.link}
+    onClick={editMode && (e => e.preventDefault())}
     className={"card" + (editMode ? " bg-indigo-100 bg-opacity-40" : "")}
   >
     <img width="100%" src={"https://icon.horse/icon/" + new URL(info.link).hostname + new URL(info.link).pathname + "?size=big"} alt={info.name} />

@@ -21,17 +21,18 @@ function App() {
   }, [])
 
   const [settings, setSettings] = useState(false)
+  const [editMode, setEditMode] = useState(false)
 
   return <>
     <SettingsIcon setSettings={setSettings} />
-    <Settings pages={pages} setPages={setPages} settings={settings} />
+    <Settings pages={pages} setPages={setPages} settings={settings} editMode={editMode} setEditMode={setEditMode} />
     <div className="flex flex-col gap-3 p-3 justify-center items-center min-h-screen">
       <span id="splash-text"></span>
       <SearchBar />
       <div className="container">
         <div className="grid gap-4 w-full max-sm:grid-cols-3 max-md:grid-cols-4 max-lg:grid-cols-5 grid-cols-6">
           {pages.map((page, i) => (
-            <Page key={i} page={page} />
+            <Page editMode={editMode} pages={pages} setPages={setPages} key={i} info={page} />
           ))}
         </div>
       </div>

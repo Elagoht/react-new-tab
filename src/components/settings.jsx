@@ -1,4 +1,4 @@
-const Settings = ({ settings, setPages, pages }) => {
+const Settings = ({ settings, setPages, pages, setEditMode, editMode }) => {
 
   const handleAddSite = (e) => {
     const new_pages = [
@@ -13,7 +13,7 @@ const Settings = ({ settings, setPages, pages }) => {
     e.preventDefault()
   }
 
-  return settings && <div className="fixed top-[4.25rem] right-3 bottom-3 w-80 glass z-10" >
+  return settings && <div className="fixed top-[4.25rem] right-3 bottom-3 w-80 glass z-10 flex flex-col" >
     <fieldset className="text-white">
       <legend>Add New Site</legend>
       <form className="w-full" onSubmit={handleAddSite}>
@@ -41,6 +41,15 @@ const Settings = ({ settings, setPages, pages }) => {
         />
 
       </form>
+    </fieldset>
+    <fieldset>
+      <legend>Edit Mode</legend>
+      <button
+        className={"glass w-full " + (editMode ? "bg-red-500" : "bg-green-500")}
+        onClick={() => setEditMode(prev => !prev)}
+      >
+        {editMode ? "Disable" : "Enable"}
+      </button>
     </fieldset>
   </div>
 }

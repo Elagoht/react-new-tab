@@ -15,12 +15,6 @@
   .glass {
     @apply bg-opacity-40 border border-stone-100 bg-black p-3 rounded-xl flex border-opacity-20 backdrop-blur-md;
   }
-  fieldset {
-    @apply glass h-min
-  }
-  legend {
-    @apply text-white ml-2
-  }
   select {
     @apply bg-transparent flex-shrink-0;
   }
@@ -32,6 +26,9 @@
   }
   input:focus::placeholder {
     @apply text-stone-300;
+  }
+  form:invalid #add-button {
+    @apply bg-red-700 hover:bg-red-500
   }
   .card {
     @apply flex flex-col items-center justify-center p-3 gap-3 bg-black bg-opacity-20 rounded-xl transition-transform border border-stone-100 border-opacity-20 backdrop-blur-3xl;

@@ -5,7 +5,6 @@ import ico_rename from "../assets/misc/rename.svg"
 import { useEditMode } from "../contexts/EditContext"
 import { usePages } from "../contexts/PagesContext"
 import { useCallback } from "react"
-import { motion } from "framer-motion"
 import { useEditPopup } from "../contexts/EditPopupContext"
 
 const Page = ({ info }) => {
@@ -51,13 +50,10 @@ const Page = ({ info }) => {
     })
   }, [setEditPopup, setEditingPage])
 
-  return <motion.a
-    initial={{ rotate: 0 }}
-    animate={{ rotate: editMode ? [-5, 5, -5] : 0 }}
-    transition={{ repeat: editMode ? Infinity : 0, duration: 1, ease: "easeIn" }}
+  return <a
     href={info.link}
     onClick={editMode ? (e => e.preventDefault()) : undefined}
-    className={"card" + (editMode ? " bg-indigo-100 bg-opacity-40" : "")}
+    className={"card" + (editMode ? " bg-indigo-100 bg-opacity-40 scaring" : "")}
   >
     <img width="100%" src={"https://icon.horse/icon/" + new URL(info.link).hostname + new URL(info.link).pathname + "?size=big"} alt={info.name} />
     <div className="whitespace-nowrap text-ellipsis overflow-hidden max-w-full">
@@ -71,6 +67,6 @@ const Page = ({ info }) => {
         <button className="edit-button"><img width="16rem" src={ico_next} alt=">" /></button>
       </div>
     }
-  </motion.a >
+  </a>
 }
 export default Page

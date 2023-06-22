@@ -48,7 +48,7 @@
     @apply max-w-screen-lg text-center text-white text-5xl leading-tight drop-shadow-2xl shadow-black font-bold;
   }
   @keyframes scaring {
-    0%  { rotate:  2.5deg; }
-    100%  { rotate: -2.5deg; }
+    0%  { rotate:  1deg; }
+    100%  { rotate: -1deg; }
   }
 }

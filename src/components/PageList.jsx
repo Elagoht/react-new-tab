@@ -19,7 +19,7 @@ export default function PageList() {
         (!editMode && pages.length === 0) && <div div className="text-3xl text-neutral-200">There's no pages yet. Let's add some!</div>
       }
       {editMode &&
-        <div className="cursor-pointer card bg-indigo-100 bg-opacity-40" onClick={() => setPopup(prev => !prev)}>
+        <div className="cursor-pointer card bg-indigo-100 bg-opacity-40 scaring" onClick={() => setPopup(prev => !prev)}>
           <img src={ico_new} alt="+" />
           <div>Add New Site</div>
         </div>

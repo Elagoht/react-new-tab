@@ -5,6 +5,7 @@ import ico_rename from "../assets/misc/rename.svg"
 import { useEditMode } from "../contexts/EditContext"
 import { usePages } from "../contexts/PagesContext"
 import { useCallback } from "react"
+import { motion } from "framer-motion"
 
 const Page = ({ info }) => {
 
@@ -28,7 +29,10 @@ const Page = ({ info }) => {
     setPages(new_pages)
   }, [pages, setPages])
 
-  return <a
+  return <motion.a
+    initial={{ rotate: 0 }}
+    animate={{ rotate: editMode ? [0, -10, 0, 10, 0] : 0 }}
+    transition={{ repeat: editMode ? Infinity : 0, duration: .5, ease: "easeInOut" }}
     href={info.link}
     onClick={editMode && (e => e.preventDefault())}
     className={"card" + (editMode ? " bg-indigo-100 bg-opacity-40" : "")}
@@ -45,6 +49,6 @@ const Page = ({ info }) => {
         <button className="w-7 h-7 glass p-0 justify-center items-center rounded-full"><img width="16rem" src={ico_next} alt=">" /></button>
       </div>
     }
-  </a >
+  </motion.a >
 }
 export default Page

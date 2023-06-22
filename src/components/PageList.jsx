@@ -11,7 +11,7 @@ export default function PageList() {
   const { setPopup } = usePopup()
 
   return <div className="container">
-    <div className={(pages.length !== 0 || editMode) ? "grid gap-4 w-full max-sm:grid-cols-3 max-md:grid-cols-4 max-lg:grid-cols-5 grid-cols-6" : "w-full flex items-center justify-center text-center h-48"}>
+    <div className={(pages.length !== 0 || editMode) ? "grid gap-4 w-full max-[480px]:grid-cols-2 max-sm:grid-cols-3 max-md:grid-cols-4 max-lg:grid-cols-5 grid-cols-6" : "w-full flex items-center justify-center text-center h-48"}>
       {pages.map((page, i) => (
         <Page pages={pages} key={i} info={page} />
       ))}

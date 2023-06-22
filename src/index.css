@@ -30,7 +30,7 @@
     @apply bg-red-700 hover:bg-red-500
   }
   .card {
-    @apply flex flex-col items-center justify-center p-3 gap-3 bg-black hover:bg-blue-100 hover:bg-opacity-20 bg-opacity-20 rounded-xl transition-transform border border-neutral-100 border-opacity-20 backdrop-blur-3xl;
+    @apply flex flex-col items-center justify-center p-3 gap-3 bg-black hover:bg-neutral-400 hover:bg-opacity-20 bg-opacity-20 rounded-xl transition-transform border border-neutral-100 border-opacity-20 backdrop-blur-3xl;
   }
   .scaring {
     animation: scaring .4s ease-in-out infinite alternate;
@@ -39,7 +39,7 @@
     @apply flex max-w-screen-lg w-full p-3 rounded-xl text-white bg-black bg-opacity-40 border border-neutral-100 border-opacity-20 backdrop-blur-md;
   }
   .edit-button {
-    @apply w-7 h-7 glass p-0 justify-center items-center;
+    @apply w-7 h-7 glass p-0 justify-center items-center flex-1 rounded-none;
   }
   #splash-text {
     text-shadow: 0 0 0.4rem black, 0 0 0.1rem black;

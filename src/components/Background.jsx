@@ -6,14 +6,12 @@ export default function Background() {
   const wallpaper = useRef("div")
 
   useEffect(() => {
-    console.log(wallpaper.current)
     wallpaper.current.style.backgroundImage = `url("${backgrounds[Math.round(Math.random() * (backgrounds.length - 1))]}")`
 
     document.body.addEventListener("mousemove", (e) => {
       wallpaper.current.style.setProperty("background-position-x", -e.clientX / 10 + "px");
       wallpaper.current.style.setProperty("background-position-y", window.innerHeight + e.clientY / 10 + "px");
     })
-
   }, [])
 
   return <div

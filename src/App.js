@@ -5,6 +5,7 @@ import PageList from "./components/PageList"
 import SplashText from "./components/SplashText"
 import EditModal from "./components/EditModal"
 import Background from "./components/Background"
+import DeleteModal from "./components/DeleteModal"
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     <Background />
     <AddModal />
     <EditModal />
+    <DeleteModal />
     <div className="flex flex-col gap-3 p-3 justify-center items-center min-h-screen">
       <SplashText />
       <SearchBar />

@@ -6,12 +6,14 @@ import { useEditMode } from "../contexts/EditContext"
 import { usePages } from "../contexts/PagesContext"
 import { useCallback } from "react"
 import { useEditPopup } from "../contexts/EditPopupContext"
+import { useDelete } from "../contexts/DeletePopupContext"
 
-const Page = ({ info }) => {
+const Page = ({ info, }) => {
 
   const { editMode } = useEditMode()
   const { pages, setPages } = usePages()
   const { setEditPopup, setEditingPage } = useEditPopup()
+  const { setDeleting, setDeletePopup } = useDelete()
 
   const deletePage = useCallback((event) => {
     // Get index of page
@@ -19,16 +21,14 @@ const Page = ({ info }) => {
     const allPages = clickedPage.parentNode.childNodes;
     const index = Array.prototype.indexOf.call(allPages, clickedPage);
 
-    // If not confirmed, do not continue
-    if (!window.confirm(`Do you want to delete ${clickedPage.childNodes[2].innerHTML}?`)) return
-    // Remove index from clone
-    const new_pages = [...pages]
-    new_pages.splice(index, 1)
+    setDeletePopup(true)
+    setDeleting({
+      name: clickedPage.childNodes[2].innerHTML,
+      link: clickedPage.href,
+      index
+    })
 
-    // Set new array as pages
-    localStorage["pages"] = JSON.stringify(new_pages)
-    setPages(new_pages)
-  }, [pages, setPages])
+  }, [setDeletePopup, setDeleting])
 
   const editPage = useCallback(event => {
     // Get index of page
@@ -83,6 +83,7 @@ const Page = ({ info }) => {
   return <a
     href={info.link}
     onClick={editMode ? (e => e.preventDefault()) : undefined}
+    onAuxClick={editMode ? (e => e.preventDefault()) : undefined}
     className={"card" + (editMode ? " bg-neutral-400  hover:bg-neutral-50 hover:bg-opacity-40 bg-opacity-40 scaring" : "")}
     style={{ animationDelay: 500 * Math.random() + "ms" }}
   >

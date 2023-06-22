@@ -20,6 +20,9 @@
   body {
     @apply bg-neutral-900;
   }
+  input[type=submit] {
+    @apply cursor-pointer
+  }
   input::placeholder {
     @apply text-neutral-400;
   }

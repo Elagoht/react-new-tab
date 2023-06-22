@@ -84,6 +84,7 @@ const Page = ({ info }) => {
     href={info.link}
     onClick={editMode ? (e => e.preventDefault()) : undefined}
     className={"card" + (editMode ? " bg-neutral-400  hover:bg-neutral-50 hover:bg-opacity-40 bg-opacity-40 scaring" : "")}
+    style={{ animationDelay: 500 * Math.random() + "ms" }}
   >
     <img
       width="100%"

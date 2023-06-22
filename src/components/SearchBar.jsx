@@ -14,10 +14,14 @@ const SearchBar = ({ setSettings }) => {
   const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
-    document.body.style.backgroundImage = `url("${backgrounds[Math.round(Math.random() * (backgrounds.length - 1))]
-      }")`
-    document.getElementById("splash-text").innerText =
-      splashTexts[Math.round(Math.random() * (splashTexts.length - 1))]
+    document.body.style.backgroundImage = `url("${backgrounds[Math.round(Math.random() * (backgrounds.length - 1))]}")`
+    document.getElementById("splash-text").innerText = splashTexts[Math.round(Math.random() * (splashTexts.length - 1))]
+
+    document.body.addEventListener("mousemove", (e) => {
+      document.body.style.setProperty("background-position-x", -e.clientX / 10 + "px");
+      document.body.style.setProperty("background-position-y", window.innerHeight + e.clientY / 10 + "px");
+    })
+
   }, [])
 
   function search(event) {

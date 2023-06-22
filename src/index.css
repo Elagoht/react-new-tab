@@ -18,7 +18,8 @@
     @apply bg-transparent flex-shrink-0;
   }
   body {
-    @apply bg-neutral-900 bg-cover bg-center outline-none;
+    background-size:110%;
+    @apply bg-neutral-900 bg-bottom outline-none;
   }
   input::placeholder {
     @apply text-neutral-400;

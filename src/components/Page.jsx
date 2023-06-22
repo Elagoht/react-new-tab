@@ -6,20 +6,22 @@ import { useEditMode } from "../contexts/EditContext"
 import { usePages } from "../contexts/PagesContext"
 import { useCallback } from "react"
 import { motion } from "framer-motion"
+import { useEditPopup } from "../contexts/EditPopupContext"
 
 const Page = ({ info }) => {
 
   const { editMode } = useEditMode()
   const { pages, setPages } = usePages()
+  const { setEditPopup, setEditingPage } = useEditPopup()
 
   const deletePage = useCallback((event) => {
     // Get index of page
-    const clickedPage = event.target.parentElement.parentElement.parentElement;
+    const clickedPage = event.currentTarget.parentElement.parentElement;
     const allPages = clickedPage.parentNode.childNodes;
     const index = Array.prototype.indexOf.call(allPages, clickedPage);
 
-    alert(`#${index} is ${clickedPage.index}`)
-
+    // If not confirmed, do not continue
+    if (!window.confirm(`Do you want to delete ${clickedPage.childNodes[1].innerHTML}?`)) return
     // Remove index from clone
     const new_pages = [...pages]
     new_pages.splice(index, 1)
@@ -29,12 +31,32 @@ const Page = ({ info }) => {
     setPages(new_pages)
   }, [pages, setPages])
 
+  const editPage = useCallback(event => {
+    // Get index of page
+    const clickedPage = event.currentTarget.parentElement.parentElement;
+    const allPages = clickedPage.parentNode.childNodes;
+    const index = Array.prototype.indexOf.call(allPages, clickedPage);
+
+    setEditPopup(true)
+    setEditingPage({
+      name: clickedPage.childNodes[1].innerHTML,
+      link: clickedPage.href,
+      index
+    })
+
+    console.log({
+      name: clickedPage.childNodes[1].innerHTML,
+      link: clickedPage.href,
+      index
+    })
+  }, [setEditPopup, setEditingPage])
+
   return <motion.a
     initial={{ rotate: 0 }}
-    animate={{ rotate: editMode ? [0, -10, 0, 10, 0] : 0 }}
-    transition={{ repeat: editMode ? Infinity : 0, duration: .5, ease: "easeInOut" }}
+    animate={{ rotate: editMode ? [-5, 5, -5] : 0 }}
+    transition={{ repeat: editMode ? Infinity : 0, duration: 1, ease: "easeIn" }}
     href={info.link}
-    onClick={editMode && (e => e.preventDefault())}
+    onClick={editMode ? (e => e.preventDefault()) : undefined}
     className={"card" + (editMode ? " bg-indigo-100 bg-opacity-40" : "")}
   >
     <img width="100%" src={"https://icon.horse/icon/" + new URL(info.link).hostname + new URL(info.link).pathname + "?size=big"} alt={info.name} />
@@ -43,10 +65,10 @@ const Page = ({ info }) => {
     </div>
     {
       editMode && <div className=" controller flex gap-1 justify-around w-full">
-        <button className="w-7 h-7 glass p-0 justify-center items-center rounded-full"><img width="16rem" src={ico_previous} alt="<" /></button>
-        <button onClick={(event) => deletePage(event)} className="w-7 h-7 glass p-0 justify-center items-center rounded-full"><img width="16rem" src={ico_delete} alt="X" /></button>
-        <button className="w-7 h-7 glass p-0 justify-center items-center rounded-full"><img width="16rem" src={ico_rename} alt="|" /></button>
-        <button className="w-7 h-7 glass p-0 justify-center items-center rounded-full"><img width="16rem" src={ico_next} alt=">" /></button>
+        <button className="w-7 h-7 glass p-0 justify-center items-center"><img width="16rem" src={ico_previous} alt="<" /></button>
+        <button onClick={event => deletePage(event)} className="w-7 h-7 glass p-0 justify-center items-center"><img width="16rem" src={ico_delete} alt="X" /></button>
+        <button onClick={event => editPage(event)} className="w-7 h-7 glass p-0 justify-center items-center"><img width="16rem" src={ico_rename} alt="|" /></button>
+        <button className="edit-button"><img width="16rem" src={ico_next} alt=">" /></button>
       </div>
     }
   </motion.a >

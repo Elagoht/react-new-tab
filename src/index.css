@@ -7,34 +7,36 @@
 @layer components {
   * {
     font-family: "Poppins", sans-serif;
-    @apply !transition-all ;
   }
   *:focus {
     @apply outline-8 rounded-xl outline-orange-500;
   }
   .glass {
-    @apply bg-opacity-40 border border-stone-100 bg-black p-3 rounded-xl flex border-opacity-20 backdrop-blur-md;
+    @apply bg-opacity-40 border border-neutral-100 bg-black p-3 rounded-xl flex border-opacity-20 backdrop-blur-md;
   }
   select {
     @apply bg-transparent flex-shrink-0;
   }
   body {
-    @apply bg-stone-900 bg-cover bg-center outline-none;
+    @apply bg-neutral-900 bg-cover bg-center outline-none;
   }
   input::placeholder {
-    @apply text-stone-400;
+    @apply text-neutral-400;
   }
   input:focus::placeholder {
-    @apply text-stone-300;
+    @apply text-neutral-300;
   }
   form:invalid #add-button {
     @apply bg-red-700 hover:bg-red-500
   }
   .card {
-    @apply flex flex-col items-center justify-center p-3 gap-3 bg-black hover:bg-blue-100 hover:bg-opacity-20 bg-opacity-20 rounded-xl transition-transform border border-stone-100 border-opacity-20 backdrop-blur-3xl;
+    @apply flex flex-col items-center justify-center p-3 gap-3 bg-black hover:bg-blue-100 hover:bg-opacity-20 bg-opacity-20 rounded-xl transition-transform border border-neutral-100 border-opacity-20 backdrop-blur-3xl;
   }
   .container {
-    @apply flex max-w-screen-lg w-full p-3 rounded-xl text-white bg-black bg-opacity-40 border border-stone-100 border-opacity-20 backdrop-blur-md;
+    @apply flex max-w-screen-lg w-full p-3 rounded-xl text-white bg-black bg-opacity-40 border border-neutral-100 border-opacity-20 backdrop-blur-md;
+  }
+  .edit-button {
+    @apply w-7 h-7 glass p-0 justify-center items-center;
   }
   #splash-text {
     text-shadow: 0 0 0.4rem black, 0 0 0.1rem black;

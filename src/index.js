@@ -5,16 +5,19 @@ import PagesContext from './contexts/PagesContext'
 import EditContext from './contexts/EditContext'
 import PopupContext from './contexts/PopupContext'
 import { AnimatePresence } from 'framer-motion'
+import EditPopupContext from './contexts/EditPopupContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <AnimatePresence mode="wait">
     <EditContext>
-      <PopupContext>
-        <PagesContext>
-          <App />
-        </PagesContext>
-      </PopupContext>
+      <EditPopupContext>
+        <PopupContext>
+          <PagesContext>
+            <App />
+          </PagesContext>
+        </PopupContext>
+      </EditPopupContext>
     </EditContext>
-  </AnimatePresence>
+  </AnimatePresence >
 )

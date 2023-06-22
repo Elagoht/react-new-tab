@@ -16,7 +16,7 @@ export default function PageList() {
         <Page pages={pages} key={index} info={page} />
       ))}
       {
-        (!editMode && pages.length === 0) && <div div className="text-3xl text-neutral-200">There's no pages yet. Let's add some!</div>
+        (!editMode && pages.length === 0) && <div className="text-3xl text-neutral-200">There's no pages yet. Let's add some!</div>
       }
       {editMode &&
         <div className="cursor-pointer card bg-indigo-100 bg-opacity-40 scaring" onClick={() => setPopup(prev => !prev)}>

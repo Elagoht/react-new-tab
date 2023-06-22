@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react"
-import backgrounds from "../assets/backgrounds"
+import { useState } from "react"
 import searchProviders from "../data/searchProviders"
-import splashTexts from "../data/splashTexts"
 import EditIcon from "./EditIcon"
 
 const SearchBar = ({ setSettings }) => {
@@ -12,17 +10,6 @@ const SearchBar = ({ setSettings }) => {
 
   const [searcher, setSearcher] = useState(handleStorage())
   const [searchTerm, setSearchTerm] = useState("")
-
-  useEffect(() => {
-    document.body.style.backgroundImage = `url("${backgrounds[Math.round(Math.random() * (backgrounds.length - 1))]}")`
-    document.getElementById("splash-text").innerText = splashTexts[Math.round(Math.random() * (splashTexts.length - 1))]
-
-    document.body.addEventListener("mousemove", (e) => {
-      document.body.style.setProperty("background-position-x", -e.clientX / 10 + "px");
-      document.body.style.setProperty("background-position-y", window.innerHeight + e.clientY / 10 + "px");
-    })
-
-  }, [])
 
   function search(event) {
     if (event.key === "Enter") {

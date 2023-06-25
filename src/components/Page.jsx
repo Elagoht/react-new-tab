@@ -2,9 +2,10 @@ import ico_delete from "../assets/misc/delete.svg"
 import ico_previous from "../assets/misc/previous.svg"
 import ico_next from "../assets/misc/next.svg"
 import ico_rename from "../assets/misc/rename.svg"
+import ico_loading from "../assets/misc/loading.svg"
 import { useEditMode } from "../contexts/EditContext"
 import { usePages } from "../contexts/PagesContext"
-import { useCallback } from "react"
+import { useCallback, useState } from "react"
 import { useEditPopup } from "../contexts/EditPopupContext"
 import { useDelete } from "../contexts/DeletePopupContext"
 
@@ -14,6 +15,7 @@ const Page = ({ info, }) => {
   const { pages, setPages } = usePages()
   const { setEditPopup, setEditingPage } = useEditPopup()
   const { setDeleting, setDeletePopup } = useDelete()
+  const [loaded, setLoaded] = useState(false)
 
   const deletePage = useCallback((event) => {
     // Get index of page
@@ -88,11 +90,23 @@ const Page = ({ info, }) => {
     style={{ animationDelay: 500 * Math.random() + "ms" }}
   >
     <img
+      onLoad={() => setLoaded(true)}
       width="100%"
       src={"https://icon.horse/icon/" + new URL(info.link).hostname + new URL(info.link).pathname + "?size=big"}
       alt={info.name}
-      className={editMode ? "-mb-10 p-2 bg-neutral-800 bg-opacity-60 rounded-lg" : ""}
+      className={
+        (editMode ? "-mb-10 p-2 bg-neutral-800 bg-opacity-60 rounded-lg" : "") +
+        (loaded ? "" : " hidden")
+      }
     />
+    {!loaded &&
+      <img
+        width="100%"
+        src={ico_loading}
+        alt="Loading..."
+        className={"loading" + (editMode ? " -mb-10 p-2" : "")}
+      />
+    }
     {
       editMode && <div className="controller flex justify-around w-full">
         <button onClick={event => moveBackward(event)} className="edit-button rounded-bl-lg hover:bg-neutral-400"><img width="16rem" src={ico_previous} alt="<" /></button>

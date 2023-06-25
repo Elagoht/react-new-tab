@@ -38,6 +38,9 @@
   .scaring {
     animation: scaring .4s ease-in-out infinite alternate;
   }
+  .loading {
+    animation: loading 3s ease-in-out infinite;
+  }
   .container {
     @apply flex max-w-screen-lg w-full p-3 rounded-xl text-white bg-black bg-opacity-40 border border-neutral-100 border-opacity-20 backdrop-blur-md;
   }
@@ -53,5 +56,9 @@
   @keyframes scaring {
     0%  { rotate:  1deg; }
     100%  { rotate: -1deg; }
+  }
+  @keyframes loading {
+    from { rotate: 0deg; }
+    to { rotate: 360deg; }
   }
 }

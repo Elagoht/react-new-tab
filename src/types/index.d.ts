@@ -11,7 +11,7 @@ export type searchEngine = {
 }
 
 interface IPage {
-  index: number
+  index?: number
   name: string
   link: string
 }

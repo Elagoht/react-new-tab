@@ -1,23 +1,23 @@
-import { usePages } from "../contexts/PagesContext"
-import { usePopup } from "../contexts/PopupContext"
+import { FC } from "react"
+import { usePages, usePopup } from "../assets/utils/contexts"
 
-const AddModal = () => {
+const AddModal: FC = () => {
 
   const { pages, setPages } = usePages()
   const { popup, setPopup } = usePopup()
 
-  const handleAddSite = (e) => {
+  const handleAddSite = (event) => {
     const new_pages = [
       ...pages,
       {
-        name: e.target.elements["site-name"].value,
-        link: e.target.elements["site-link"].value,
+        name: event.target.elements["site-name"].value,
+        link: event.target.elements["site-link"].value,
       }
     ]
     setPages(new_pages)
     setPopup(false)
     localStorage["pages"] = JSON.stringify(new_pages)
-    e.preventDefault()
+    event.preventDefault()
   }
 
   return popup && <>

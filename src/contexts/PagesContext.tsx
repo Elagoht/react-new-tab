@@ -1,14 +1,23 @@
-import { createContext, useContext, useState, useEffect } from "react"
+import { createContext, useContext, useState, useEffect, FC } from "react"
 import sites from "../data/sites"
+import { IChildrenComponent, Page } from "../types"
 
-const Context = createContext<[]>([])
+interface IPagesContext {
+  pages: Page[]
+  setPages: React.Dispatch<React.SetStateAction<Page[]>>
+}
 
-export default function PagesContext({ children }) {
+export const Context = createContext<IPagesContext>({
+  pages: [],
+  setPages: () => undefined
+})
 
-  const [pages, setPages] = useState(
+const PagesContext: FC<IChildrenComponent> = ({ children }) => {
+
+  const [pages, setPages] = useState<Page[]>(
     localStorage["pages"] === undefined
       ? sites
-      : JSON.parse(localStorage["pages"])
+      : JSON.parse(localStorage["pages"]) as Page[]
   )
 
   useEffect(() => {
@@ -27,4 +36,4 @@ export default function PagesContext({ children }) {
   </Context.Provider>
 }
 
-export const usePages = () => useContext(Context)
+export default PagesContext

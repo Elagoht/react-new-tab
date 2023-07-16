@@ -1,8 +1,7 @@
-import { useCallback } from "react"
-import { useDelete } from "../contexts/DeletePopupContext"
-import { usePages } from "../contexts/PagesContext"
+import { FC, useCallback } from "react"
+import { useDelete, usePages } from "../assets/utils/contexts"
 
-export default function DeleteModal() {
+const DeleteModal: FC = () => {
 
   const { pages, setPages } = usePages()
   const { deleting, setDeletePopup, deletePopup } = useDelete()
@@ -55,3 +54,5 @@ export default function DeleteModal() {
     </div>
   </div>
 }
+
+export default DeleteModal

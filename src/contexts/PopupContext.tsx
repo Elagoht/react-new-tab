@@ -1,8 +1,17 @@
-import { createContext, useContext, useState } from "react"
+import { FC, createContext, useState } from "react"
+import { IChildrenComponent } from "../types"
 
-const Context = createContext(false)
+interface IPopupContext {
+  popup: boolean;
+  setPopup: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export default function PopupContext({ children }) {
+export const Context = createContext<IPopupContext>({
+  popup: false,
+  setPopup: () => undefined
+})
+
+const PopupContext: FC<IChildrenComponent> = ({ children }) => {
   const [popup, setPopup] = useState(false)
 
   const values = {
@@ -14,4 +23,5 @@ export default function PopupContext({ children }) {
     {children}
   </Context.Provider>
 }
-export const usePopup = () => useContext(Context)
+
+export default PopupContext

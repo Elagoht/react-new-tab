@@ -1,10 +1,19 @@
-import { createContext, useContext, useState } from "react"
+import { FC, createContext, useState } from "react"
+import { IChildrenComponent } from "../types"
 
-const Context = createContext(false)
+interface IEditContext {
+  editMode: boolean;
+  setEditMode: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export default function EditContext({ children }) {
+export const Context = createContext<IEditContext>({
+  editMode: false,
+  setEditMode: () => undefined
+})
 
-  const [editMode, setEditMode] = useState(false)
+const EditContext: FC<IChildrenComponent> = ({ children }) => {
+
+  const [editMode, setEditMode] = useState<boolean>(false)
 
   const values = {
     editMode,
@@ -16,4 +25,4 @@ export default function EditContext({ children }) {
   </Context.Provider>
 }
 
-export const useEditMode = () => useContext(Context)
+export default EditContext

@@ -1,6 +1,8 @@
 import searchIcons from "../assets/search";
+import { searchEngine } from "../types";
 
-const searchProviders = [
+
+const searchProviders: searchEngine[] = [
   {
     name: "Duckduckgo",
     icon: searchIcons.ddg,
@@ -75,7 +77,7 @@ const searchProviders = [
     name: "Twitter",
     icon: searchIcons.twitter,
     link: "https://twitter.com/search?q=",
-  },
+  }
 ];
 
-export default searchProviders;
+export default searchProviders

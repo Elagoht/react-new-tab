@@ -1,21 +1,21 @@
-import { usePages } from "../contexts/PagesContext"
-import { useEditPopup } from "../contexts/EditPopupContext"
+import { FC } from "react"
+import { useEditPopup, usePages } from "../assets/utils/contexts"
 
-const EditModal = () => {
+const EditModal: FC = () => {
 
   const { pages, setPages } = usePages()
   const { editPopup, setEditPopup, editingPage } = useEditPopup()
 
-  const handleEditSite = (e) => {
-    let new_pages = [...pages]
+  const handleEditSite = (event) => {
+    const new_pages = [...pages]
     new_pages[editingPage.index] = {
-      name: e.target.elements["site-name"].value,
-      link: e.target.elements["site-link"].value,
+      name: event.target.elements["site-name"].value,
+      link: event.target.elements["site-link"].value,
     }
     setPages(new_pages)
     setEditPopup(false)
     localStorage["pages"] = JSON.stringify(new_pages)
-    e.preventDefault()
+    event.preventDefault()
   }
 
   return editPopup && <>

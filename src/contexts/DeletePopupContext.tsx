@@ -1,11 +1,40 @@
-import { createContext, useContext, useState } from "react"
+import { FC, createContext, useState } from "react"
+import { IChildrenComponent } from "../types"
 
-const Context = createContext()
+interface IDeletePopupContext {
+  deletePopup: boolean
+  setDeletePopup: React.Dispatch<React.SetStateAction<boolean>>
+  deleting: {
+    index: number
+    name: string
+    link: string
+  }
+  setDeleting: React.Dispatch<React.SetStateAction<{
+    index: number
+    name: string
+    link: string
+  }>>
+}
 
-export default function DeletePopupContext({ children }) {
+export const Context = createContext<IDeletePopupContext>({
+  deletePopup: false,
+  setDeletePopup: () => undefined,
+  deleting: {
+    index: -1,
+    name: "",
+    link: ""
+  },
+  setDeleting: () => undefined,
+})
+
+const DeletePopupContext: FC<IChildrenComponent> = ({ children }) => {
 
   const [deletePopup, setDeletePopup] = useState(false)
-  const [deleting, setDeleting] = useState({})
+  const [deleting, setDeleting] = useState({
+    index: -1,
+    name: "",
+    link: ""
+  })
 
   const values = {
     deletePopup,
@@ -19,4 +48,4 @@ export default function DeletePopupContext({ children }) {
   </Context.Provider>
 }
 
-export const useDelete = () => useContext(Context)
+export default DeletePopupContext

@@ -3,13 +3,17 @@ import ico_previous from "../assets/misc/previous.svg"
 import ico_next from "../assets/misc/next.svg"
 import ico_rename from "../assets/misc/rename.svg"
 import ico_loading from "../assets/misc/loading.svg"
-import { useEditMode } from "../contexts/EditContext"
-import { usePages } from "../contexts/PagesContext"
-import { useCallback, useState } from "react"
-import { useEditPopup } from "../contexts/EditPopupContext"
-import { useDelete } from "../contexts/DeletePopupContext"
+import { FC, useCallback, useState } from "react"
+import { useDelete, useEditMode, useEditPopup, usePages } from "../assets/utils/contexts"
 
-const Page = ({ info, }) => {
+interface PageProps {
+  info: {
+    name: string
+    link: string
+  }
+}
+
+const Page: FC<PageProps> = ({ info }) => {
 
   const { editMode } = useEditMode()
   const { pages, setPages } = usePages()
@@ -54,7 +58,7 @@ const Page = ({ info, }) => {
     if (index === pages.length - 1) return
 
     // Remove and insert one index before
-    let new_pages = [...pages]
+    const new_pages = [...pages]
 
     const selected = new_pages[index]
     new_pages[index] = new_pages[index + 1]
@@ -72,7 +76,7 @@ const Page = ({ info, }) => {
     if (index === 0) return
 
     // Remove and insert one index before
-    let new_pages = [...pages]
+    const new_pages = [...pages]
     const selected = new_pages[index];
     new_pages[index] = new_pages[index - 1];
     new_pages[index - 1] = selected;

@@ -14,7 +14,7 @@ import twitter from "./twitter.png"
 import yahoo from "./yahoo.png"
 import yandex from "./yandex.png"
 
-const searchIcons = {
+const searchIcons: { [key: string]: string } = {
   ddg,
   google,
   wikipedia,

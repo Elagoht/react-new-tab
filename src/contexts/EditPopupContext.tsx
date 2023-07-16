@@ -1,20 +1,53 @@
-import { createContext, useContext, useState } from "react"
+import { FC, createContext, useState } from "react"
+import { IChildrenComponent } from "../types"
 
-const Context = createContext()
+interface IEditPopupContext {
+  editPopup: boolean
+  setEditPopup: React.Dispatch<React.SetStateAction<boolean>>
+  editingPage: {
+    index: number
+    name: string
+    link: string
+  }
+  setEditingPage: React.Dispatch<React.SetStateAction<{
+    index: number;
+    name: string;
+    link: string;
+  }>>
+}
 
-export default function EditPopupContext({ children }) {
-  const [editPopup, setEditPopup] = useState(false)
-  const [editingPage, setEditingPage] = useState({})
+export const Context = createContext<IEditPopupContext>({
+  editPopup: false,
+  setEditPopup: () => undefined,
+  editingPage: {
+    index: -1,
+    name: "",
+    link: ""
+  },
+  setEditingPage: () => undefined
+})
 
-  const values = {
+const EditPopupContext: FC<IChildrenComponent> = ({ children }) => {
+
+  const [editPopup, setEditPopup] = useState<boolean>(false)
+  const [editingPage, setEditingPage] = useState<{
+    index: number
+    name: string
+    link: string
+  }>({
+    index: -1,
+    name: "",
+    link: ""
+  })
+
+  return <Context.Provider value={{
     editPopup,
     setEditPopup,
     editingPage,
     setEditingPage
-  }
-
-  return <Context.Provider value={values}>
+  }}>
     {children}
   </Context.Provider>
 }
-export const useEditPopup = () => useContext(Context)
+
+export default EditPopupContext

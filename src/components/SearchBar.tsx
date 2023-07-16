@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { FC, useState } from "react"
 import searchProviders from "../data/searchProviders"
 import EditIcon from "./EditIcon"
 
-const SearchBar = ({ setSettings }) => {
+const SearchBar: FC = () => {
+
   function handleStorage() {
     if (!localStorage["searchProvider"]) localStorage["searchProvider"] = 0
     return localStorage["searchProvider"]
@@ -13,9 +14,10 @@ const SearchBar = ({ setSettings }) => {
 
   function search(event) {
     if (event.key === "Enter") {
-      window.location = searchProviders[searcher].link + event.target.value
+      window.location = searchProviders[searcher].link + event.target.value as string & Location
     }
   }
+
   return <div className="flex max-w-screen-lg w-full gap-2">
     <div className="container p-0 items-center">
       <img
@@ -28,7 +30,7 @@ const SearchBar = ({ setSettings }) => {
         id="searchProvider"
         className="py-3"
         onChange={() => {
-          let value = document.getElementById("searchProvider").value
+          const value = (document.getElementById("searchProvider") as HTMLSelectElement).value
           setSearcher(value)
           localStorage["searchProvider"] = value
         }}>
@@ -43,14 +45,14 @@ const SearchBar = ({ setSettings }) => {
         placeholder="Search"
         onKeyDown={search}
         onChange={() => {
-          setSearchTerm(document.getElementById("search-term").value)
+          setSearchTerm((document.getElementById("search-term") as HTMLInputElement).value)
         }}
         className="bg-transparent w-full p-3"
       />
       <input
         type="reset"
         onClick={() => {
-          document.getElementById("search-term").value = ""
+          (document.getElementById("search-term") as HTMLInputElement).value = ""
           setSearchTerm("")
         }}
         value="❌"
@@ -60,7 +62,7 @@ const SearchBar = ({ setSettings }) => {
         }
       />
     </div>
-    <EditIcon setSettings={setSettings} />
+    <EditIcon />
   </div>
 }
 

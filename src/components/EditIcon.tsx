@@ -1,7 +1,8 @@
+import { FC } from 'react'
 import icon from '../assets/misc/edit.svg'
-import { useEditMode } from "../contexts/EditContext"
+import { useEditMode } from '../assets/utils/contexts'
 
-const EditIcon = () => {
+const EditIcon: FC = () => {
 
   const { editMode, setEditMode } = useEditMode()
 

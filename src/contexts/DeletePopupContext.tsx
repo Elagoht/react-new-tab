@@ -1,19 +1,11 @@
 import { FC, createContext, useState } from "react"
-import { IChildrenComponent } from "../types"
+import { IChildrenComponent, IPage } from "../types"
 
 interface IDeletePopupContext {
   deletePopup: boolean
   setDeletePopup: React.Dispatch<React.SetStateAction<boolean>>
-  deleting: {
-    index: number
-    name: string
-    link: string
-  }
-  setDeleting: React.Dispatch<React.SetStateAction<{
-    index: number
-    name: string
-    link: string
-  }>>
+  deleting: IPage
+  setDeleting: React.Dispatch<React.SetStateAction<IPage>>
 }
 
 export const Context = createContext<IDeletePopupContext>({

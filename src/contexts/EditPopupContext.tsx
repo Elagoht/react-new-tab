@@ -1,19 +1,11 @@
 import { FC, createContext, useState } from "react"
-import { IChildrenComponent } from "../types"
+import { IChildrenComponent, IPage } from "../types"
 
 interface IEditPopupContext {
   editPopup: boolean
   setEditPopup: React.Dispatch<React.SetStateAction<boolean>>
-  editingPage: {
-    index: number
-    name: string
-    link: string
-  }
-  setEditingPage: React.Dispatch<React.SetStateAction<{
-    index: number;
-    name: string;
-    link: string;
-  }>>
+  editingPage: IPage
+  setEditingPage: React.Dispatch<React.SetStateAction<IPage>>
 }
 
 export const Context = createContext<IEditPopupContext>({
@@ -30,11 +22,7 @@ export const Context = createContext<IEditPopupContext>({
 const EditPopupContext: FC<IChildrenComponent> = ({ children }) => {
 
   const [editPopup, setEditPopup] = useState<boolean>(false)
-  const [editingPage, setEditingPage] = useState<{
-    index: number
-    name: string
-    link: string
-  }>({
+  const [editingPage, setEditingPage] = useState<IPage>({
     index: -1,
     name: "",
     link: ""

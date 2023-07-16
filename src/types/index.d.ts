@@ -9,3 +9,9 @@ export type searchEngine = {
   icon: string,
   link: string,
 }
+
+interface IPage {
+  index: number
+  name: string
+  link: string
+}

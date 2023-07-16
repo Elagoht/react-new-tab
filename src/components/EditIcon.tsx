@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import icon from '../assets/misc/edit.svg'
 import { useEditMode } from '../assets/utils/contexts'
+import { Edit3 } from 'lucide-react'
 
 const EditIcon: FC = () => {
 
@@ -10,7 +10,7 @@ const EditIcon: FC = () => {
     className={"glass p-2 aspect-square items-center justify-center cursor-pointer select-none" + (editMode ? " bg-neutral-200 bg-opacity-40 border-neutral-200" : "")}
     onClick={() => setEditMode(prev => !prev)}
   >
-    <img src={icon} alt="settings" width="24" />
+    <Edit3 stroke="white" />
   </div>
 }
 

@@ -1,10 +1,7 @@
-import ico_delete from "../assets/misc/delete.svg"
-import ico_previous from "../assets/misc/previous.svg"
-import ico_next from "../assets/misc/next.svg"
-import ico_rename from "../assets/misc/rename.svg"
 import ico_loading from "../assets/misc/loading.svg"
 import { FC, useCallback, useState } from "react"
 import { useDelete, useEditMode, useEditPopup, usePages } from "../assets/utils/contexts"
+import { ChevronLeft, ChevronRight, Edit3, Trash2 } from "lucide-react"
 
 interface PageProps {
   info: {
@@ -121,10 +118,18 @@ const Page: FC<PageProps> = ({ info }) => {
     }
     {
       editMode && <div className="controller flex justify-around w-full">
-        <button onClick={event => moveBackward(event)} className="edit-button rounded-bl-lg hover:bg-neutral-400"><img width="16rem" src={ico_previous} alt="<" /></button>
-        <button onClick={event => deletePage(event)} className="edit-button hover:bg-red-400"><img width="16rem" src={ico_delete} alt="X" /></button>
-        <button onClick={event => editPage(event)} className="edit-button hover:bg-amber-400"><img width="16rem" src={ico_rename} alt="|" /></button>
-        <button onClick={event => moveForward(event)} className="edit-button rounded-br-lg hover:bg-neutral-400"><img width="16rem" src={ico_next} alt=">" /></button>
+        <button onClick={event => moveBackward(event)} className="edit-button rounded-bl-lg hover:bg-neutral-400">
+          <ChevronLeft size={16} />
+        </button>
+        <button onClick={event => deletePage(event)} className="edit-button hover:bg-red-400">
+          <Trash2 size={16} />
+        </button>
+        <button onClick={event => editPage(event)} className="edit-button hover:bg-amber-400">
+          <Edit3 size={16} />
+        </button>
+        <button onClick={event => moveForward(event)} className="edit-button rounded-br-lg hover:bg-neutral-400">
+          <ChevronRight size={16} />
+        </button>
       </div >
     }
     <div className="whitespace-nowrap text-ellipsis overflow-hidden max-w-full">

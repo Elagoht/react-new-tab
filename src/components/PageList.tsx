@@ -1,7 +1,7 @@
 import Page from "./Page"
-import ico_new from "../assets/misc/plus.svg"
 import { FC } from "react"
 import { useEditMode, usePages, usePopup } from "../assets/utils/contexts"
+import { Plus } from "lucide-react"
 
 const PageList: FC = () => {
 
@@ -19,7 +19,7 @@ const PageList: FC = () => {
       }
       {editMode &&
         <div className="cursor-pointer card bg-indigo-100 bg-opacity-40 scaring" onClick={() => setPopup(prev => !prev)}>
-          <img src={ico_new} alt="+" />
+          <Plus size={"100%"} />
           <div>Add New Site</div>
         </div>
       }

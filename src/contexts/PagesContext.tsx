@@ -1,10 +1,10 @@
 import { createContext, useState, useEffect, FC } from "react"
 import sites from "../data/sites"
-import { IChildrenComponent, IPage } from "../types"
+import { IChildrenComponent, IPageIndexless } from "../types"
 
 interface IPagesContext {
-  pages: IPage[]
-  setPages: React.Dispatch<React.SetStateAction<IPage[]>>
+  pages: IPageIndexless[]
+  setPages: React.Dispatch<React.SetStateAction<IPageIndexless[]>>
 }
 
 export const Context = createContext<IPagesContext>({
@@ -14,10 +14,10 @@ export const Context = createContext<IPagesContext>({
 
 const PagesContext: FC<IChildrenComponent> = ({ children }) => {
 
-  const [pages, setPages] = useState<IPage[]>(
+  const [pages, setPages] = useState<IPageIndexless[]>(
     localStorage["pages"] === undefined
       ? sites
-      : JSON.parse(localStorage["pages"]) as IPage[]
+      : JSON.parse(localStorage["pages"]) as IPageIndexless[]
   )
 
   useEffect(() => {

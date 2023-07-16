@@ -9,9 +9,11 @@ export type searchEngine = {
   icon: string,
   link: string,
 }
-
-interface IPage {
-  index?: number
+interface IPageIndexless {
   name: string
   link: string
+}
+
+interface IPage extends IPageIndexless {
+  index: number
 }

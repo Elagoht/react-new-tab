@@ -96,7 +96,7 @@ const Page: FC<PageProps> = ({ info }) => {
     onClick={editMode ? (e => e.preventDefault()) : undefined}
     onAuxClick={editMode ? (e => e.preventDefault()) : undefined}
     className={"card" + (editMode ? " bg-neutral-400  hover:bg-neutral-50 hover:bg-opacity-40 bg-opacity-40 scaring" : "")}
-    style={{ animationDelay: 500 * Math.random() + "ms" }}
+    style={{ animationDelay: -500 * Math.random() + "ms" }}
   >
     <img
       onLoad={() => setLoaded(true)}

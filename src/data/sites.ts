@@ -1,10 +1,13 @@
-import { Page } from "../types";
+const sites: {
+  index: number
+  name: string
+  link: string
+}[] = [
+    {
+      index: 0,
+      name: "Author",
+      link: "https://github.com/Elagoht",
+    }
+  ];
 
-const sites: Page[] = [
-  {
-    name: "Author",
-    link: "https://github.com/Elagoht",
-  }
-];
-
-export default sites;
+export default sites

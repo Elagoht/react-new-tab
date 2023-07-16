@@ -44,7 +44,7 @@ const DeleteModal: FC = () => {
           className="glass py-2 mt-2 bg-neutral-700 hover:bg-neutral-500"
         />
         <input
-          onClick={(event) => handleDelete(event)}
+          onClick={handleDelete}
           id="add-button"
           type="submit"
           value="Done"

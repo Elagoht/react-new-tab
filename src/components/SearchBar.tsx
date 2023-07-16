@@ -12,9 +12,10 @@ const SearchBar: FC = () => {
   const [searcher, setSearcher] = useState(handleStorage())
   const [searchTerm, setSearchTerm] = useState("")
 
-  function search(event) {
+  function search(event: React.KeyboardEvent<HTMLInputElement>) {
     if (event.key === "Enter") {
-      window.location = searchProviders[searcher].link + event.target.value as string & Location
+      if (event.currentTarget.value)
+        window.location = searchProviders[searcher].link + event.currentTarget.value as string & Location
     }
   }
 
@@ -43,7 +44,7 @@ const SearchBar: FC = () => {
       <input
         id="search-term"
         placeholder="Search"
-        onKeyDown={search}
+        onKeyDown={(event) => search(event)}
         onChange={() => {
           setSearchTerm((document.getElementById("search-term") as HTMLInputElement).value)
         }}

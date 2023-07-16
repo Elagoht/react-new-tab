@@ -8,10 +8,10 @@ const Background: FC = () => {
   useEffect(() => {
     if (wallpaper.current) {
       wallpaper.current.style.backgroundImage = `url("${backgrounds[Math.round(Math.random() * (backgrounds.length - 1))]}")`
-      document.body.addEventListener("mousemove", (e) => {
+      document.body.addEventListener<"mousemove">("mousemove", (event) => {
         if (wallpaper.current) {
-          wallpaper.current.style.setProperty("background-position-x", -e.clientX / 30 + "px");
-          wallpaper.current.style.setProperty("background-position-y", window.innerHeight + e.clientY / 30 + "px");
+          wallpaper.current.style.setProperty("background-position-x", -event.clientX / 30 + "px");
+          wallpaper.current.style.setProperty("background-position-y", window.innerHeight + event.clientY / 30 + "px");
         }
 
       })

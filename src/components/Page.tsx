@@ -21,69 +21,77 @@ const Page: FC<PageProps> = ({ info }) => {
   const { setDeleting, setDeletePopup } = useDelete()
   const [loaded, setLoaded] = useState(false)
 
-  const deletePage = useCallback((event) => {
+  const deletePage = useCallback((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     // Get index of page
-    const clickedPage = event.currentTarget.parentElement.parentElement;
-    const allPages = clickedPage.parentNode.childNodes;
-    const index = Array.prototype.indexOf.call(allPages, clickedPage);
+    if (event.currentTarget.parentElement) {
+      const clickedPage = event.currentTarget.parentElement.parentElement as HTMLAnchorElement;
+      const allPages = (clickedPage.parentNode as HTMLElement).childNodes;
+      const index = Array.prototype.indexOf.call(allPages, clickedPage);
 
-    setDeletePopup(true)
-    setDeleting({
-      name: clickedPage.childNodes[2].innerHTML,
-      link: clickedPage.href,
-      index
-    })
-
+      setDeletePopup(true)
+      setDeleting({
+        name: (clickedPage.childNodes[2] as HTMLElement).innerHTML,
+        link: clickedPage.href,
+        index
+      })
+    }
   }, [setDeletePopup, setDeleting])
 
-  const editPage = useCallback(event => {
+  const editPage = useCallback((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     // Get index of page
-    const clickedPage = event.currentTarget.parentElement.parentElement;
-    const allPages = clickedPage.parentNode.childNodes;
-    const index = Array.prototype.indexOf.call(allPages, clickedPage);
+    if (event.currentTarget.parentElement) {
 
-    setEditPopup(true)
-    setEditingPage({
-      name: clickedPage.childNodes[2].innerHTML,
-      link: clickedPage.href,
-      index
-    })
+      const clickedPage = event.currentTarget.parentElement.parentElement as HTMLAnchorElement;
+      const allPages = ((clickedPage as HTMLElement).parentNode as ParentNode).childNodes;
+      const index = Array.prototype.indexOf.call(allPages, clickedPage);
+
+      setEditPopup(true)
+      setEditingPage({
+        name: (clickedPage.childNodes[2] as HTMLElement).innerHTML,
+        link: clickedPage.href,
+        index
+      })
+    }
   }, [setEditPopup, setEditingPage])
 
-  const moveForward = (event) => {
+  const moveForward = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     // Get index of page
-    const clickedPage = event.currentTarget.parentElement.parentElement;
-    const allPages = clickedPage.parentNode.childNodes;
-    const index = Array.prototype.indexOf.call(allPages, clickedPage);
-    if (index === pages.length - 1) return
+    if (event.currentTarget.parentElement) {
+      const clickedPage = event.currentTarget.parentElement.parentElement as HTMLAnchorElement;
+      const allPages = (clickedPage.parentNode as HTMLElement).childNodes;
+      const index = Array.prototype.indexOf.call(allPages, clickedPage);
+      if (index === pages.length - 1) return
 
-    // Remove and insert one index before
-    const new_pages = [...pages]
+      // Remove and insert one index before
+      const new_pages = [...pages]
 
-    const selected = new_pages[index]
-    new_pages[index] = new_pages[index + 1]
-    new_pages[index + 1] = selected
+      const selected = new_pages[index]
+      new_pages[index] = new_pages[index + 1]
+      new_pages[index + 1] = selected
 
-    // Set new array as pages
-    localStorage["pages"] = JSON.stringify(new_pages)
-    setPages(new_pages)
+      // Set new array as pages
+      localStorage["pages"] = JSON.stringify(new_pages)
+      setPages(new_pages)
+    }
   }
-  const moveBackward = (event) => {
+  const moveBackward = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     // Get index of page
-    const clickedPage = event.currentTarget.parentElement.parentElement;
-    const allPages = clickedPage.parentNode.childNodes;
-    const index = Array.prototype.indexOf.call(allPages, clickedPage);
-    if (index === 0) return
+    if (event.currentTarget.parentElement) {
+      const clickedPage = event.currentTarget.parentElement.parentElement as HTMLAnchorElement;
+      const allPages = (clickedPage.parentNode as HTMLElement).childNodes;
+      const index = Array.prototype.indexOf.call(allPages, clickedPage);
+      if (index === 0) return
 
-    // Remove and insert one index before
-    const new_pages = [...pages]
-    const selected = new_pages[index];
-    new_pages[index] = new_pages[index - 1];
-    new_pages[index - 1] = selected;
+      // Remove and insert one index before
+      const new_pages = [...pages]
+      const selected = new_pages[index];
+      new_pages[index] = new_pages[index - 1];
+      new_pages[index - 1] = selected;
 
-    // Set new array as pages
-    localStorage["pages"] = JSON.stringify(new_pages)
-    setPages(new_pages)
+      // Set new array as pages
+      localStorage["pages"] = JSON.stringify(new_pages)
+      setPages(new_pages)
+    }
   }
 
   return <a
@@ -124,4 +132,5 @@ const Page: FC<PageProps> = ({ info }) => {
     </div>
   </a >
 }
+
 export default Page

@@ -6,11 +6,11 @@ const EditModal: FC = () => {
   const { pages, setPages } = usePages()
   const { editPopup, setEditPopup, editingPage } = useEditPopup()
 
-  const handleEditSite = (event) => {
+  const handleEditSite = (event: React.FormEvent<HTMLFormElement>) => {
     const new_pages = [...pages]
     new_pages[editingPage.index] = {
-      name: event.target.elements["site-name"].value,
-      link: event.target.elements["site-link"].value,
+      name: (event.currentTarget.elements.namedItem("site-name") as HTMLInputElement).value,
+      link: (event.currentTarget.elements.namedItem("site-link") as HTMLInputElement).value,
     }
     setPages(new_pages)
     setEditPopup(false)

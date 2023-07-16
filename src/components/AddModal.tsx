@@ -6,12 +6,12 @@ const AddModal: FC = () => {
   const { pages, setPages } = usePages()
   const { popup, setPopup } = usePopup()
 
-  const handleAddSite = (event) => {
+  const handleAddSite = (event: React.FormEvent<HTMLFormElement>) => {
     const new_pages = [
       ...pages,
       {
-        name: event.target.elements["site-name"].value,
-        link: event.target.elements["site-link"].value,
+        name: (event.currentTarget.elements.namedItem("site-name") as HTMLInputElement).value,
+        link: (event.currentTarget.elements.namedItem("site-link") as HTMLInputElement).value,
       }
     ]
     setPages(new_pages)
@@ -32,7 +32,7 @@ const AddModal: FC = () => {
           >X</div>
         </div>
 
-        <form className="w-full" onSubmit={handleAddSite}>
+        <form className="w-full" onSubmit={(event) => handleAddSite(event)}>
           <label htmlFor="site-name">Name</label>
           <input
             required

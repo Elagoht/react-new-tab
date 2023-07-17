@@ -17,3 +17,15 @@ interface IPageIndexless {
 interface IPage extends IPageIndexless {
   index: number
 }
+
+type ISettings = {
+  background: {
+    mouseInteraction: boolean
+    type: 0 | 1 | 2
+    color: string
+  },
+  text: {
+    custom: boolean
+    customText: string
+  }
+}

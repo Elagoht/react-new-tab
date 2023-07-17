@@ -1,10 +1,10 @@
 import { FC } from "react"
-import { usePages, usePopup } from "../assets/utils/contexts"
+import { usePages, useAddPopup } from "../assets/utils/contexts"
 
 const AddModal: FC = () => {
 
   const { pages, setPages } = usePages()
-  const { popup, setPopup } = usePopup()
+  const { popup, setPopup } = useAddPopup()
 
   const handleAddSite = (event: React.FormEvent<HTMLFormElement>) => {
     const new_pages = [

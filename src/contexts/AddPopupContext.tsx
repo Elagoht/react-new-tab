@@ -11,7 +11,7 @@ export const Context = createContext<IPopupContext>({
   setPopup: () => undefined
 })
 
-const PopupContext: FC<IChildrenComponent> = ({ children }) => {
+const AddPopupContext: FC<IChildrenComponent> = ({ children }) => {
   const [popup, setPopup] = useState(false)
 
   const values = {
@@ -24,4 +24,4 @@ const PopupContext: FC<IChildrenComponent> = ({ children }) => {
   </Context.Provider>
 }
 
-export default PopupContext
+export default AddPopupContext

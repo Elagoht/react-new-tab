@@ -47,6 +47,12 @@
   .edit-button {
     @apply w-7 h-7 glass p-0 justify-center items-center flex-1 rounded-none;
   }
+  .selected {
+    @apply bg-purple-500 bg-opacity-10 
+  }
+  label {
+    @apply cursor-pointer
+  }
   #splash-text {
     text-shadow: 0 0 0.4rem black, 0 0 0.1rem black;
     font-family: "Dancing Script", cursive;

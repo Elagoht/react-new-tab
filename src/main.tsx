@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import PagesContext from './contexts/PagesContext'
 import EditContext from './contexts/EditContext'
-import PopupContext from './contexts/PopupContext'
+import AddPopupContext from './contexts/AddPopupContext'
 import EditPopupContext from './contexts/EditPopupContext'
 import DeletePopupContext from './contexts/DeletePopupContext'
 
@@ -11,11 +11,11 @@ root.render(
   <EditContext>
     <EditPopupContext>
       <DeletePopupContext>
-        <PopupContext>
+        <AddPopupContext>
           <PagesContext>
             <App />
           </PagesContext>
-        </PopupContext>
+        </AddPopupContext>
       </DeletePopupContext>
     </EditPopupContext>
   </EditContext>

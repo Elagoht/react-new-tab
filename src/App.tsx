@@ -6,11 +6,13 @@ import SplashText from "./components/SplashText"
 import EditModal from "./components/EditModal"
 import Background from "./components/Background"
 import DeleteModal from "./components/DeleteModal"
+import Settings from "./components/Settings"
 
 function App() {
 
   return <>
     <Background />
+    <Settings />
     <AddModal />
     <EditModal />
     <DeleteModal />

@@ -80,7 +80,7 @@ const Settings: FC = () => {
             </label>
 
             <label id="custom-image-label" htmlFor="custom-image" className="flex gap-1">
-              <div className="glass rounded-t-none flex flex-col gap-1">
+              <div className="glass rounded-t-none flex flex-col gap-1 w-full">
                 <input type="radio" className="hidden" name="background-type" value="custom-image" id="custom-image" />
                 Custom Image
                 <input type="url" name="custom-image-url" id="custom-image-url" placeholder="Custom Image URL" className="glass p-1 disabled:opacity-40" />

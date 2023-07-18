@@ -3,20 +3,20 @@ import { IChildrenComponent } from "../types"
 
 interface IPopupContext {
   popup: boolean;
-  setPopup: React.Dispatch<React.SetStateAction<boolean>>;
+  setAddPopup: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const Context = createContext<IPopupContext>({
   popup: false,
-  setPopup: () => undefined
+  setAddPopup: () => undefined
 })
 
 const AddPopupContext: FC<IChildrenComponent> = ({ children }) => {
-  const [popup, setPopup] = useState(false)
+  const [popup, setAddPopup] = useState(false)
 
   const values = {
     popup,
-    setPopup
+    setAddPopup
   }
 
   return <Context.Provider value={values}>

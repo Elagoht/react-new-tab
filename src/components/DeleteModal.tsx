@@ -1,5 +1,6 @@
 import { FC, useCallback } from "react"
 import { useDelete, usePages } from "../assets/utils/contexts"
+import { X } from "lucide-react"
 
 const DeleteModal: FC = () => {
 
@@ -23,8 +24,8 @@ const DeleteModal: FC = () => {
         <div> Edit Site</div>
         <div
           onClick={() => setDeletePopup(prev => !prev)}
-          className="glass rounded-full w-8 h-8 bg-red-700 hover:bg-red-500 justify-center items-center cursor-pointer select-none"
-        >X</div>
+          className="text-red-700 hover:text-red-500 cursor-pointer select-none"
+        ><X size={32} /></div>
       </div>
 
       <div>

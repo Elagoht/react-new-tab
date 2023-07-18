@@ -57,7 +57,8 @@ const Settings: FC = () => {
         }
       }}
       className="flex fixed top-0 left-0 bottom-0 z-10 max-sm:w-full">
-      <div className="glass m-3 flex flex-col text-neutral-200 max-sm:w-full max-sm:max-w-full select-none overflow-scroll">
+      <div className="glass m-3 flex flex-col text-neutral-200 max-sm:w-full max-sm:max-w-full select-none overflow-y
+      -scroll overflow-x-hidden">
         <div className="text-2xl mb-3 font-bold flex items-center justify-between">
           Settings
           <div className="w-12 h-12 -m-3 -mr-2 flex items-center justify-center cursor-pointer rounded-full hover:bg-red-700 hover:bg-opacity-30 transition-colors" onClick={() => setSettingsPopup(false)}>

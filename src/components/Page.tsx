@@ -27,7 +27,7 @@ const Page: FC<PageProps> = ({ info }) => {
 
       setDeletePopup(true)
       setDeleting({
-        name: (clickedPage.childNodes[2] as HTMLElement).innerHTML,
+        name: (clickedPage.querySelector(".whitespace-nowrap.text-ellipsis.overflow-hidden.max-w-full") as HTMLElement).innerHTML,
         link: clickedPage.href,
         index
       })
@@ -44,7 +44,7 @@ const Page: FC<PageProps> = ({ info }) => {
 
       setEditPopup(true)
       setEditingPage({
-        name: (clickedPage.childNodes[2] as HTMLElement).innerHTML,
+        name: (clickedPage.querySelector(".whitespace-nowrap.text-ellipsis.overflow-hidden.max-w-full") as HTMLElement).innerHTML,
         link: clickedPage.href,
         index
       })

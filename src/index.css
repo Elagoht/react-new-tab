@@ -51,7 +51,7 @@
     @apply w-7 h-7 glass p-0 justify-center items-center flex-1 rounded-none;
   }
   .selected {
-    @apply bg-sky-500 bg-opacity-20
+    @apply !bg-sky-500 !bg-opacity-20
   }
   label {
     @apply cursor-pointer

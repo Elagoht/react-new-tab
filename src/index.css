@@ -32,6 +32,9 @@
   form:invalid #add-button {
     @apply bg-red-700 hover:bg-red-500
   }
+  fieldset {
+    @apply min-w-0
+  }
   .card {
     @apply flex-col items-center justify-center gap-3  hover:bg-neutral-700 hover:bg-opacity-50 transition-transform glass;
   }

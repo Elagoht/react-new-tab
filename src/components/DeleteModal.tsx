@@ -1,6 +1,7 @@
 import { FC, useCallback } from "react"
 import { useDelete, usePages } from "../assets/utils/contexts"
 import { X } from "lucide-react"
+import { AnimatePresence, motion } from "framer-motion"
 
 const DeleteModal: FC = () => {
 
@@ -17,43 +18,60 @@ const DeleteModal: FC = () => {
     setDeletePopup(false)
   }, [deleting.index, pages, setPages, setDeletePopup])
 
-  return deletePopup && <div className="bg-neutral-900 bg-opacity-80 fixed top-0 right-0 bottom-0 left-0 z-20 p-4 flex justify-center items-center flex-col cursor-default">
-    <div className="glass flex-col text-white max-w-screen-sm w-full">
+  return <AnimatePresence mode="wait">
+    {
+      deletePopup && <motion.div
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        variants={{
+          hidden: {
+            opacity: 0,
+            transition: { ease: "easeIn", duration: .1 }
+          },
+          visible: {
+            opacity: 1,
+            transition: { ease: "easeIn", duration: .1 }
+          }
+        }}
+        className="glass rounded-none border-none bg-neutral-900 bg-opacity-80 fixed top-0 right-0 bottom-0 left-0 z-20 p-4 flex justify-center items-center flex-col cursor-default">
+        <div className="flex-col border border-neutral-100 border-opacity-20 rounded-xl bg-black p-3 bg-opacity-40 text-white max-w-screen-sm w-full">
+          <div className="text-xl font-bold flex justify-between">
+            <div className="text-red-400">Delete Site</div>
+            <div
+              onClick={() => setDeletePopup(prev => !prev)}
+              className="text-red-700 hover:text-red-500 cursor-pointer select-none"
+            ><X size={32} /></div>
+          </div>
 
-      <div className="text-xl font-bold flex justify-between">
-        <div> Edit Site</div>
-        <div
-          onClick={() => setDeletePopup(prev => !prev)}
-          className="text-red-700 hover:text-red-500 cursor-pointer select-none"
-        ><X size={32} /></div>
-      </div>
+          <div>
+            Do you really want to delete the
+            <span className="text-amber-500"> {deleting.name} </span>
+            which goes to
+            <a target="_blank" rel="noreferrer" href={deleting.link} className="text-indigo-500"> {deleting.link}</a>
+            ?
+          </div>
 
-      <div>
-        Do you really want to delete the
-        <span className="text-amber-500"> {deleting.name} </span>
-        which goes to
-        <a target="_blank" rel="noreferrer" href={deleting.link} className="text-indigo-500"> {deleting.link}</a>
-        ?
-      </div>
-
-      <div className="w-full flex justify-end gap-3">
-        <input
-          onClick={() => setDeletePopup(false)}
-          id="add-button"
-          type="submit"
-          value="Cancel"
-          className="glass py-2 mt-2 bg-neutral-700 hover:bg-neutral-500"
-        />
-        <input
-          onClick={handleDelete}
-          id="add-button"
-          type="submit"
-          value="Done"
-          className="glass py-2 mt-2 bg-red-700 hover:bg-red-500"
-        />
-      </div>
-    </div>
-  </div>
+          <div className="w-full flex justify-end gap-3">
+            <input
+              onClick={() => setDeletePopup(false)}
+              id="add-button"
+              type="submit"
+              value="Cancel"
+              className="glass py-2 mt-2 bg-neutral-700 hover:bg-neutral-500"
+            />
+            <input
+              onClick={handleDelete}
+              id="add-button"
+              type="submit"
+              value="Done"
+              className="glass py-2 mt-2 bg-red-700 hover:bg-red-500"
+            />
+          </div>
+        </div>
+      </motion.div>
+    }
+  </AnimatePresence>
 }
 
 export default DeleteModal

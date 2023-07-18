@@ -185,7 +185,7 @@ const Settings: FC = () => {
             </label>
           </fieldset>
 
-          <input type="submit" value="Save" className="glass bg-sky-500 bg-opacity-20 hover:bg-opacity-40" />
+          <input type="submit" value="Save" className="glass text-center bg-sky-500 bg-opacity-20 hover:bg-opacity-40" />
         </form>
       </div>
     </motion.div >}

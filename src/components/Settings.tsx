@@ -2,10 +2,11 @@ import { FC, useState } from 'react'
 import { useSettings } from '../assets/utils/contexts'
 import classNames from 'classnames'
 import { ISettings } from '../types'
+import { X } from 'lucide-react'
 
 const Settings: FC = () => {
 
-  const { settings, updateSettings } = useSettings()
+  const { settings, updateSettings, settingsPopup, setSettingsPopup } = useSettings()
 
   const [mouseInteraction, setMouseInteraction] = useState<boolean>(settings.background.mouseInteraction)
   const [bgType, setBgType] = useState<0 | 1 | 2>(settings.background.type)
@@ -31,11 +32,17 @@ const Settings: FC = () => {
     }
     updateSettings(newSettings)
     event.preventDefault()
+    setSettingsPopup(false)
   }
 
-  return <div className="flex fixed top-0 left-0 bottom-0 z-10 max-sm:w-full">
+  return settingsPopup && <div className="flex fixed top-0 left-0 bottom-0 z-10 max-sm:w-full">
     <div className="glass m-4 flex flex-col text-neutral-200 max-sm:w-full select-none overflow-scroll">
-      <div className="text-center text-2xl mb-3 font-bold">Settings</div>
+      <div className="text-2xl mb-3 font-bold flex items-center justify-between">
+        Settings
+        <div className="w-12 h-12 -m-3 -mr-2 flex items-center justify-center cursor-pointer rounded-full hover:bg-red-700 hover:bg-opacity-30 transition-colors" onClick={() => setSettingsPopup(false)}>
+          <X className="text-red-500" />
+        </div>
+      </div>
       <hr className="border-0 border-b -mx-3 mb-3 border-neutral-600" />
       <form
         onSubmit={(event) => handleSubmit(event)}

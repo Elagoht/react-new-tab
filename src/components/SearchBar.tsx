@@ -1,6 +1,7 @@
 import { FC, useState } from "react"
 import searchProviders from "../data/searchProviders"
 import EditIcon from "./EditIcon"
+import SettingsIcon from "./SettingsIcon"
 
 const SearchBar: FC = () => {
 
@@ -64,6 +65,7 @@ const SearchBar: FC = () => {
       />
     </div>
     <EditIcon />
+    <SettingsIcon />
   </div>
 }
 

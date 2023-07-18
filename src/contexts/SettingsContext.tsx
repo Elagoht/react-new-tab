@@ -4,6 +4,8 @@ import { IChildrenComponent, ISettings } from "../types"
 interface IDeletePopupContext {
   settings: ISettings
   updateSettings: (payload: ISettings) => void
+  settingsPopup: boolean
+  setSettingsPopup: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export const Context = createContext<IDeletePopupContext>({
@@ -21,10 +23,13 @@ export const Context = createContext<IDeletePopupContext>({
     blur: 2
   },
   updateSettings: () => undefined,
+  settingsPopup: false,
+  setSettingsPopup: () => undefined,
 })
 
 const SettingsContext: FC<IChildrenComponent> = ({ children }) => {
 
+  const [settingsPopup, setSettingsPopup] = useState<boolean>(false)
   const [settings, setSettings] = useState<ISettings>(
     // Set the data on local storage, if available else write default values
     localStorage.getItem("settings")
@@ -52,7 +57,9 @@ const SettingsContext: FC<IChildrenComponent> = ({ children }) => {
 
   const values = {
     settings,
-    updateSettings
+    updateSettings,
+    settingsPopup,
+    setSettingsPopup
   }
 
   return <Context.Provider value={values}>

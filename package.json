@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "classnames": "^2.3.2",
+    "framer-motion": "^10.12.22",
     "lucide-react": "^0.260.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

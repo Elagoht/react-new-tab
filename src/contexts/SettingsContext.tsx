@@ -36,7 +36,7 @@ const SettingsContext: FC<IChildrenComponent> = ({ children }) => {
       ? JSON.parse(localStorage.getItem("settings") as string)
       : {
         background: {
-          mouseInteraction: false,
+          mouseInteraction: true,
           type: 0,
           color: "#000000",
           url: ""

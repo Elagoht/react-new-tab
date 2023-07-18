@@ -4,6 +4,7 @@ import { Context as DeletePopupContext } from "../../contexts/DeletePopupContext
 import { Context as EditContext } from "../../contexts/EditContext";
 import { Context as EditPopupContext } from "../../contexts/EditPopupContext";
 import { Context as PagesContext } from "../../contexts/PagesContext";
+import { Context as SettingsContext } from "../../contexts/SettingsContext";
 
 export const useAddPopup = () => useContext(AddPopupContext)
 
@@ -14,3 +15,5 @@ export const useEditMode = () => useContext(EditContext)
 export const useEditPopup = () => useContext(EditPopupContext)
 
 export const usePages = () => useContext(PagesContext)
+
+export const useSettings = () => useContext(SettingsContext)

@@ -23,9 +23,11 @@ type ISettings = {
     mouseInteraction: boolean
     type: 0 | 1 | 2
     color: string
+    url: string
   },
   text: {
     custom: boolean
     customText: string
-  }
+  },
+  blur: 0 | 1 | 2 | 3
 }

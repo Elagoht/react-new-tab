@@ -3,7 +3,7 @@ import { IChildrenComponent, ISettings } from "../types"
 
 interface IDeletePopupContext {
   settings: ISettings
-  setSettings: React.Dispatch<React.SetStateAction<ISettings>>
+  updateSettings: (payload: ISettings) => void
 }
 
 export const Context = createContext<IDeletePopupContext>({
@@ -11,33 +11,48 @@ export const Context = createContext<IDeletePopupContext>({
     background: {
       mouseInteraction: true,
       type: 0,
-      color: "#000000"
+      color: "#000000",
+      url: ""
     },
     text: {
       custom: false,
       customText: ""
-    }
+    },
+    blur: 2
   },
-  setSettings: () => undefined,
+  updateSettings: () => undefined,
 })
 
-const DeletePopupContext: FC<IChildrenComponent> = ({ children }) => {
+const SettingsContext: FC<IChildrenComponent> = ({ children }) => {
 
-  const [settings, setSettings] = useState<ISettings>({
-    background: {
-      mouseInteraction: false,
-      type: 0,
-      color: "#000000"
-    },
-    text: {
-      custom: false,
-      customText: ""
-    }
-  })
+  const [settings, setSettings] = useState<ISettings>(
+    // Set the data on local storage, if available else write default values
+    localStorage.getItem("settings")
+      ? JSON.parse(localStorage.getItem("settings") as string)
+      : {
+        background: {
+          mouseInteraction: false,
+          type: 0,
+          color: "#000000",
+          url: ""
+        },
+        text: {
+          custom: false,
+          customText: ""
+        },
+        blur: 2
+      }
+  )
+
+  const updateSettings = (payload: ISettings) => {
+    console.log("worked!")
+    localStorage.setItem("settings", JSON.stringify(payload))
+    setSettings(payload)
+  }
 
   const values = {
     settings,
-    setSettings
+    updateSettings
   }
 
   return <Context.Provider value={values}>
@@ -45,4 +60,4 @@ const DeletePopupContext: FC<IChildrenComponent> = ({ children }) => {
   </Context.Provider>
 }
 
-export default DeletePopupContext
+export default SettingsContext

@@ -33,7 +33,7 @@
     @apply bg-red-700 hover:bg-red-500
   }
   .card {
-    @apply flex flex-col items-center justify-center p-3 gap-3 bg-black hover:bg-neutral-400 hover:bg-opacity-20 bg-opacity-20 rounded-xl transition-transform border border-neutral-100 border-opacity-20 backdrop-blur-3xl;
+    @apply flex flex-col items-center justify-center p-3 gap-3 bg-black hover:bg-neutral-400 hover:bg-opacity-20 bg-opacity-20 rounded-xl transition-transform border border-neutral-100 border-opacity-20 backdrop-blur-lg;
   }
   .scaring {
     animation: scaring .4s ease-in-out infinite alternate;
@@ -48,7 +48,7 @@
     @apply w-7 h-7 glass p-0 justify-center items-center flex-1 rounded-none;
   }
   .selected {
-    @apply bg-purple-500 bg-opacity-10 
+    @apply bg-sky-500 bg-opacity-20
   }
   label {
     @apply cursor-pointer

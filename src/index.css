@@ -12,7 +12,7 @@
     @apply outline-8 rounded-xl outline-orange-500;
   }
   .glass {
-    @apply bg-opacity-40 border border-neutral-100 bg-black p-3 rounded-xl flex border-opacity-20 backdrop-blur-md;
+    @apply bg-opacity-40 border border-neutral-100 bg-black p-3 rounded-xl flex border-opacity-20 backdrop-blur-sm;
   }
   select {
     @apply bg-transparent flex-shrink-0;
@@ -33,7 +33,7 @@
     @apply bg-red-700 hover:bg-red-500
   }
   .card {
-    @apply flex flex-col items-center justify-center p-3 gap-3 bg-black hover:bg-neutral-400 hover:bg-opacity-20 bg-opacity-20 rounded-xl transition-transform border border-neutral-100 border-opacity-20 backdrop-blur-lg;
+    @apply flex-col items-center justify-center gap-3  hover:bg-neutral-400 hover:bg-opacity-20 transition-transform glass;
   }
   .scaring {
     animation: scaring .4s ease-in-out infinite alternate;
@@ -42,7 +42,7 @@
     animation: loading 3s ease-in-out infinite;
   }
   .container {
-    @apply flex max-w-screen-lg w-full p-3 rounded-xl text-white bg-black bg-opacity-40 border border-neutral-100 border-opacity-20 backdrop-blur-md;
+    @apply max-w-screen-lg w-full p-3 text-white bg-opacity-40 glass;
   }
   .edit-button {
     @apply w-7 h-7 glass p-0 justify-center items-center flex-1 rounded-none;

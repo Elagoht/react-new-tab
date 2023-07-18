@@ -7,10 +7,12 @@ import EditModal from "./components/EditModal"
 import Background from "./components/Background"
 import DeleteModal from "./components/DeleteModal"
 import Settings from "./components/Settings"
+import Style from "./components/Style"
 
 function App() {
 
   return <>
+    <Style />
     <Background />
     <Settings />
     <AddModal />

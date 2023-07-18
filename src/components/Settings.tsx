@@ -90,7 +90,7 @@ const Settings: FC = () => {
 
               <label htmlFor="random-images" className={
                 classNames({
-                  "glass rounded-b-none flex gap-1": true,
+                  "glass hover:bg-opacity-20 hover:bg-neutral-500 rounded-b-none flex gap-1": true,
                   "selected": bgType === 0
                 })
               }>
@@ -103,7 +103,7 @@ const Settings: FC = () => {
 
               <label htmlFor="flat-color" className={
                 classNames({
-                  "glass items-center flex gap-1 rounded-none border-y-0": true,
+                  "glass hover:bg-opacity-20 hover:bg-neutral-500 items-center flex gap-1 rounded-none border-y-0": true,
                   "selected": bgType === 1
                 })}>
                 <input
@@ -133,7 +133,7 @@ const Settings: FC = () => {
                     value={url}
                     onChange={(event) => setUrl(event.currentTarget.value)}
                     disabled={bgType !== 2}
-                    type="url" name="custom-image-url" id="custom-image-url" placeholder="Custom Image URL" className="glass p-1 disabled:opacity-40" />
+                    type="url" name="custom-image-url" id="custom-image-url" placeholder="Custom Image URL" className="glass hover:bg-opacity-20 hover:bg-neutral-500 p-1 disabled:opacity-40" />
                 </div>
               </label>
             </fieldset>

@@ -1,21 +1,21 @@
-# React New Tab
+# React.js Yeni Sekme Sayfası
 
-I developed this page to freely customize my browsers new tab page. With its brilliant design, I let you lots of settings to tweak your own new tab page.
+Bu sayfayı, tarayıcımın yeni sekme sayfasını özgürce özelleştirmek için geliştirdim. Harika tasarımıyla, kendi yeni sekme sayfanızda ince ayar yapmanız için olanak tanıyorum.
 
-You can add new pages by just writing name and link. The favicons will be fetched automatically, thanks to <https://icon.horse/>.
+Sadece isim ve bağlantı yazarak yeni sayfalar ekleyebilirsiniz. <https://icon.horse/> sayesinde site simgeleri otomatik olarak getirilecektir.
 
-Here is the production link: <https://elagoht.github.io/react-new-tab/>
+İşte sitenin bağlantısı: <https://yenisek.me>
 
-## How To Use?
+## Nasıl kullanılır?
 
-Install an extension to set custom new tab url.
+Özel yeni sekme URL'si ayarlamak için bir uzantı yükleyin.
 
-> For Firefox based browsers:
+> Firefox tabanlı tarayıcılar için:
 > <https://addons.mozilla.org/en-US/firefox/addon/new-tab-override/>
 
-> For Chromium based browsers:
+> Chromium tabanlı tarayıcılar için:
 > <https://chrome.google.com/webstore/detail/custom-new-tab-url/mmjbdbjnoablegbkcklggeknkfcjkjia>
 
-Then set new tab url to <https://elagoht.github.io/react-new-tab/>.
+Ardından yeni sekme url'sini <https://yenisek.me> olarak ayarlayın.
 
-All done! Have fun with your brand new tab!
+Hepsi tamam! Yepyeni sekmenizle iyi eğlenceler!

@@ -42,7 +42,7 @@ const EditModal: FC = () => {
         <div className="flex-col border border-neutral-100 border-opacity-20 rounded-xl bg-black p-3 bg-opacity-40 text-white max-w-screen-sm w-full">
 
           <div className="text-xl font-bold flex justify-between">
-            <div className="text-orange-300">Edit Site</div>
+            <div className="text-orange-300">Siteyi Düzenle</div>
             <div
               onClick={() => setEditPopup(prev => !prev)}
               className="text-red-700 hover:text-red-500 cursor-pointer select-none"
@@ -50,7 +50,7 @@ const EditModal: FC = () => {
           </div>
 
           <form className="w-full" onSubmit={handleEditSite}>
-            <label htmlFor="site-name">Name</label>
+            <label htmlFor="site-name">İsim</label>
             <input
               required
               id="site-name"
@@ -73,7 +73,7 @@ const EditModal: FC = () => {
             <input
               id="add-button"
               type="submit"
-              value="Done"
+              value="Kaydet"
               className="glass py-2 ml-auto mt-2 bg-green-700 hover:bg-green-500"
             />
 

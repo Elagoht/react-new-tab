@@ -44,7 +44,7 @@ const SearchBar: FC = () => {
       </select>
       <input
         id="search-term"
-        placeholder="Search"
+        placeholder="Ara"
         onKeyDown={(event) => search(event)}
         onChange={() => {
           setSearchTerm((document.getElementById("search-term") as HTMLInputElement).value)

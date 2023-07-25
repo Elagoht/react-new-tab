@@ -20,7 +20,7 @@ const PageList: FC = () => {
       {editMode &&
         <div className="cursor-pointer card bg-indigo-100 bg-opacity-40 scaring" onClick={() => setAddPopup(prev => !prev)}>
           <Plus size={"100%"} />
-          <div>Add New Site</div>
+          <div>Yeni Site Ekle</div>
         </div>
       }
     </div>

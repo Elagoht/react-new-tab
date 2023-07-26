@@ -1,6 +1,6 @@
 import Page from "./Page"
 import { FC } from "react"
-import { useEditMode, usePages, useAddPopup } from "../assets/utils/contexts"
+import { useEditMode, usePages, useAddPopup } from "../utils/contexts"
 import { Plus } from "lucide-react"
 
 const PageList: FC = () => {

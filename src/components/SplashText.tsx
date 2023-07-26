@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react"
 import splashTexts from "../data/splashTexts"
-import { useSettings } from "../assets/utils/contexts"
+import { useSettings } from "../utils/contexts"
 
 const SplashText: FC = () => {
 

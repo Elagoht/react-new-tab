@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react'
-import { useSettings } from '../assets/utils/contexts'
+import { useSettings } from '../utils/contexts'
 
 const Style: FC = () => {
 

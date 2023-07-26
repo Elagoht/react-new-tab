@@ -1,6 +1,6 @@
 import ico_loading from "../assets/misc/loading.svg"
 import { FC, useCallback, useState } from "react"
-import { useDelete, useEditMode, useEditPopup, usePages } from "../assets/utils/contexts"
+import { useDelete, useEditMode, useEditPopup, usePages } from "../utils/contexts"
 import { ChevronLeft, ChevronRight, Edit3, Trash2 } from "lucide-react"
 
 interface PageProps {

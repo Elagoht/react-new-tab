@@ -1,6 +1,6 @@
 import { FC, useCallback, useEffect, useRef } from "react";
 import backgrounds from "../assets/backgrounds"
-import { useSettings } from "../assets/utils/contexts";
+import { useSettings } from "../utils/contexts";
 import classNames from "classnames";
 
 const Background: FC = () => {

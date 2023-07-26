@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { useSettings } from '../assets/utils/contexts'
+import { useSettings } from '../utils/contexts'
 import { Settings } from 'lucide-react'
 
 const SettingsIcon: FC = () => {

@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { useSettings } from '../assets/utils/contexts'
+import { useSettings } from '../utils/contexts'
 import classNames from 'classnames'
 import { ISettings } from '../types'
 import { X } from 'lucide-react'

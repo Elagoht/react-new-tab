@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { useEditMode } from '../assets/utils/contexts'
+import { useEditMode } from '../utils/contexts'
 import { Edit3 } from 'lucide-react'
 
 const EditIcon: FC = () => {

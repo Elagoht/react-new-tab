@@ -45,6 +45,7 @@ const SearchBar: FC = () => {
       <input
         id="search-term"
         placeholder="Ara"
+        autoFocus
         onKeyDown={(event) => search(event)}
         onChange={() => {
           setSearchTerm((document.getElementById("search-term") as HTMLInputElement).value)
